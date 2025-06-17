@@ -3,124 +3,130 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Exhibit001: Video Archive</title>
+  <title>Exhibit001 Video</title>
   <link rel="canonical" href="https://exhibit001.video/" />
-
+  
   <!-- ✅ SEO Meta -->
-  <meta name="description" content="Watch the raw motion behind Exhibit001. Street tagging, studio sewing, and photoshoot prep. Videos coming soon." />
-  <meta name="keywords" content="Exhibit001, behind the scenes, fashion video, studio work, graffiti tagging, photoshoot footage, S!CK, handmade" />
+  <meta name="description" content="Watch the Exhibit001 video experience in full screen. Turn your device for the best view." />
+  <meta name="keywords" content="Exhibit001, fashion film, streetwear video, behind the scenes, NYC fashion, S!CK, full screen fashion video" />
   <meta name="author" content="Exhibit001" />
 
   <!-- ✅ Open Graph -->
-  <meta property="og:title" content="Exhibit001: Video Archive" />
-  <meta property="og:description" content="Raw Exhibit001 footage. Tagging. Sewing. Creation. Behind the message." />
+  <meta property="og:title" content="WATCH — Exhibit001" />
+  <meta property="og:description" content="Experience Exhibit001 through video. Turn your phone. Full screen. No distractions." />
   <meta property="og:image" content="https://exhibit001.com/cover.jpg" />
   <meta property="og:url" content="https://exhibit001.video" />
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content="video.other" />
 
   <!-- ✅ Font -->
   <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
 
-  <!-- ✅ Styles -->
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 0;
-      font-family: 'Acme', sans-serif;
-      background-color: #ffffff;
-      color: #000000;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 32px;
-      margin-top: 60px;
-      margin-bottom: 10px;
-    }
-
-    .intro {
-      font-size: 16px;
-      margin-bottom: 40px;
-      color: #444;
-    }
-
-    .video-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 40px;
-      padding: 0 20px 60px;
-    }
-
-    .video-card {
-      max-width: 300px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .video-placeholder {
+      height: 100%;
       width: 100%;
-      aspect-ratio: 16 / 9;
-      background: #e0e0e0;
-      color: #666;
-      border: 1px dashed #aaa;
+      font-family: 'Acme', sans-serif;
+      background: white;
+      color: black;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 16px;
-      margin-bottom: 12px;
     }
 
-    .video-title {
-      font-size: 20px;
-      margin-bottom: 6px;
-      font-weight: bold;
+    .screen {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 1.5s ease-in-out;
+      z-index: 10;
     }
 
-    .video-desc {
-      font-size: 14px;
-      color: #444;
+    .hidden {
+      opacity: 0;
+      pointer-events: none;
     }
 
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 24px;
-      }
-      .video-card {
-        max-width: 90%;
-      }
+    #watchNow {
+      font-size: 32px;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    #turnMessage {
+      font-size: 22px;
+      color: white;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+      z-index: 5;
+    }
+
+    .arrow {
+      display: block;
+      font-size: 64px;
+      transform: rotate(45deg);
+      margin-top: 10px;
+    }
+
+    video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      display: none;
+    }
+
+    body.dark {
+      background: black;
     }
   </style>
 </head>
-
 <body>
-  <h1>EXHIBIT001: VIDEO ARCHIVE</h1>
-  <p class="intro">
-    Raw footage. Graffiti. Garment creation. All moments behind the message.
-  </p>
 
-  <div class="video-grid">
-    <!-- Video 1 -->
-    <div class="video-card">
-      <div class="video-placeholder">[ VIDEO COMING SOON ]</div>
-      <div class="video-title">GRAFFITI VIDS</div>
-      <div class="video-desc">Footage from the first night planting tags across NYC.</div>
-    </div>
-
-    <!-- Video 2 -->
-    <div class="video-card">
-      <div class="video-placeholder">[ VIDEO COMING SOON ]</div>
-      <div class="video-title">STUDIO VIDS</div>
-      <div class="video-desc">Behind the scenes videos of the process.</div>
-    </div>
-
-    <!-- Video 3 -->
-    <div class="video-card">
-      <div class="video-placeholder">[ VIDEO COMING SOON ]</div>
-      <div class="video-title">BEHIND THE PHOTOSHOOT</div>
-      <!-- No description below this one as requested -->
-    </div>
+  <div id="whiteScreen" class="screen">
+    <div id="watchNow">WATCH NOW</div>
   </div>
+
+  <div id="turnMessage">
+    TURN PHONE
+    <div class="arrow">↻</div>
+  </div>
+
+  <video id="video" autoplay muted playsinline loop>
+    <source src="yourvideo.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <script>
+    const watchNow = document.getElementById('watchNow');
+    const whiteScreen = document.getElementById('whiteScreen');
+    const turnMessage = document.getElementById('turnMessage');
+    const video = document.getElementById('video');
+
+    watchNow.addEventListener('click', () => {
+      whiteScreen.classList.add('hidden');
+      document.body.classList.add('dark');
+
+      setTimeout(() => {
+        turnMessage.style.opacity = 1;
+
+        setTimeout(() => {
+          turnMessage.style.opacity = 0;
+          video.style.display = 'block';
+        }, 2500);
+
+      }, 1500);
+    });
+  </script>
+
 </body>
 </html>

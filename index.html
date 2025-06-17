@@ -2,117 +2,118 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Exhibit001 – Video Archive</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exhibit001: Video Archive</title>
   <link rel="canonical" href="https://exhibit001.video/" />
 
-  <!-- ✅ SEO -->
-  <meta name="description" content="Explore the video archive from Exhibit001. Studio footage, graffiti tagging, and handmade process documentation." />
-  <meta name="keywords" content="Exhibit001, fashion video archive, graffiti tagging, studio footage, handmade process" />
+  <!-- ✅ SEO Meta -->
+  <meta name="description" content="Raw footage. Graffiti tagging. Garment creation. All moments behind the message of Exhibit001." />
+  <meta name="keywords" content="Exhibit001 videos, graffiti fashion, handmade clothing, behind the scenes fashion, studio process" />
   <meta name="author" content="Exhibit001" />
-  <meta property="og:title" content="Exhibit001 – Video Archive" />
-  <meta property="og:description" content="Studio footage, graffiti tagging, and raw fashion process. Coming soon." />
+
+  <!-- ✅ Open Graph -->
+  <meta property="og:title" content="Exhibit001: Video Archive" />
+  <meta property="og:description" content="Watch the street tagging, garment making, and raw process behind Exhibit001." />
   <meta property="og:image" content="https://exhibit001.com/cover.jpg" />
-  <meta property="og:url" content="https://exhibit001.video/" />
+  <meta property="og:url" content="https://exhibit001.video" />
   <meta property="og:type" content="website" />
 
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
-
+  <!-- ✅ Font + Styling -->
+  <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
+      background: white;
       font-family: 'Acme', sans-serif;
-      background-color: #fff;
-      color: #000;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 60px auto;
-      padding: 0 20px;
+      color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
     }
 
     h1 {
       font-size: 36px;
-      letter-spacing: 1px;
+      margin-top: 60px;
     }
 
-    .intro {
-      font-size: 16px;
-      margin: 12px auto 40px;
-      max-width: 600px;
-      line-height: 1.4;
+    p.intro {
+      font-size: 18px;
+      max-width: 700px;
+      margin: 20px auto 60px;
     }
 
     .video-grid {
       display: grid;
-      gap: 40px;
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      max-width: 1000px;
+      width: 100%;
+      padding: 0 24px 80px;
     }
 
     .video-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      border: 2px dashed #bbb;
+      padding: 20px;
+      background: #f3f3f3;
+      transition: all 0.3s ease;
     }
 
-    .video-box {
-      width: 100%;
-      max-width: 600px;
-      aspect-ratio: 16 / 9;
+    .video-card:hover {
       background: #eaeaea;
+      transform: scale(1.01);
+    }
+
+    .video-placeholder {
+      width: 100%;
+      aspect-ratio: 16 / 9;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
-      color: #555;
-      border: 2px dashed #aaa;
-      margin-bottom: 12px;
+      font-size: 16px;
+      color: #777;
     }
 
     .video-title {
       font-size: 20px;
-      margin-bottom: 4px;
+      margin: 18px 0 6px;
     }
 
     .video-desc {
       font-size: 14px;
-      max-width: 600px;
-      color: #333;
+      color: #444;
     }
 
-    @media (min-width: 768px) {
+    @media (max-width: 768px) {
       .video-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>EXHIBIT001: VIDEO ARCHIVE</h1>
-    <p class="intro">Raw footage. Graffiti  Garment creation. All moments behind the message.</p>
+  <h1>EXHIBIT001: VIDEO ARCHIVE</h1>
+  <p class="intro">
+    Raw footage. Graffiti. Garment creation. All moments behind the message.
+  </p>
 
-    <div class="video-grid">
-      <div class="video-card">
-        <div class="video-box">
-          <p>[ VIDEO COMING SOON ]</p>
-        </div>
-        <h2 class="video-title">GRAFFITI VIDS </h2>
-        <p class="video-desc">Footage from the first night planting tags across NYC.</p>
-      </div>
-
-      <div class="video-card">
-        <div class="video-box">
-          <p>[ VIDEO COMING SOON ]</p>
-        </div>
-        <h2 class="video-title">STUDIO VIDS</h2>
-        <p class="video-desc">Behind The Scenes Videos Of The Proccess.</p>
-      </div>
+  <div class="video-grid">
+    <!-- Video 1 -->
+    <div class="video-card">
+      <div class="video-placeholder">[ VIDEO COMING SOON ]</div>
+      <div class="video-title">GRAFFITI VIDS</div>
+      <div class="video-desc">Footage from the first night planting tags across NYC.</div>
     </div>
+
+    <!-- Video 2 -->
+    <div class="video-card">
+      <div class="video-placeholder">[ VIDEO COMING SOON ]</div>
+      <div class="video-title">STUDIO VIDS</div>
+      <div class="video-desc">Behind the scenes videos of the process.</div>
+    </div>
+
+    <!-- Add more as needed -->
   </div>
 </body>
 </html>
